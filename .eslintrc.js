@@ -22,5 +22,6 @@ module.exports = {
             "error",
             "always"
         ],
+        "react/prop-types": "off",
     }
 };

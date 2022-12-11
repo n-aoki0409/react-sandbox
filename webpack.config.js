@@ -3,11 +3,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',  
+  entry: path.resolve(__dirname, 'src/index.js'),  
   output: { 
-    filename: 'main.js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-		assetModuleFilename: './images/[name].[ext]',
+		assetModuleFilename: 'images/[name].[ext]',
   },
 	plugins: [
     new MiniCssExtractPlugin({
@@ -64,7 +64,8 @@ module.exports = {
 			directory: path.join(__dirname, 'dist'),
 			watch: true,
 		},
-		open: true,
 		port: 3000,
+    hot: true,
+    historyApiFallback: true,
 	}
 }
